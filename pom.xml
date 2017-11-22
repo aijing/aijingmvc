@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>aijingmvc</groupId>
+	<artifactId>aijingmvc</artifactId>
+	<version>1.1-SNAPSHOT</version>
+	<!--<packaging>war</packaging>-->
+
+	<properties>
+		<spring.version>3.2.8.RELEASE</spring.version>
+	</properties>
+	
+	<dependencies>
+		<!-- spring + springmvc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+	   		<version>${spring.version}</version>
+	    </dependency>
+	    <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-orm</artifactId>
+	    	<version>${spring.version}</version>
+	    </dependency>
+
+		<!-- freemaker -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.20</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<threshold>High</threshold>
+					<effort>Default</effort>
+					<findbugsXmlOutput>true</findbugsXmlOutput>
+					<findbugsXmlOutputDirectory>target/site</findbugsXmlOutputDirectory>
+				</configuration>
+			</plugin>
+<!--			<plugin>
+				<groupId>com.aijing</groupId>
+				<artifactId>aijingplugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>aijingPlugin</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>-->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>8076</port>
+					<path>/</path>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<name>Nexus Release Repository</name>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Nexus Snapshot Repository</name>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+</project>
