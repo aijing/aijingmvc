@@ -1,5 +1,5 @@
 /**
-* @descripe js运算 
+* @descripe js算术运算 
 * @auther aijing
 * @date 2017-03-19
 */
