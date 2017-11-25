@@ -32,6 +32,6 @@
     </filter-mapping>
 
     <welcome-file-list>
-        <welcome-file>index.do</welcome-file>
+        <welcome-file>test.do</welcome-file>
     </welcome-file-list>
 </web-app>
